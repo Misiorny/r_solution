@@ -1,7 +1,11 @@
-export function Button({btnText}){
-	return(
-		<button type="button">
+export function Button({btnType, btnText}) {
+	return (
+		<button type={btnType}>
 			{btnText}
 		</button>
 	)
+}
+
+Button.defaultProps = {
+	btnType: "button", btnText: "Click Me"
 }

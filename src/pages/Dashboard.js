@@ -1,18 +1,28 @@
-import {
-	BrowserRouter as Router, Route, Link
-}           from "react-router-dom";
-import { Main, Login,  } from '../pages';
+import { Main }                                from '../view/';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { Login }                               from '../view/';
+import { Answer }                              from '../view';
+import { Game }                                from '../view'
+import { Score }                               from '../view';
+
+const router = createBrowserRouter([
+	{
+		path: '/', element: <Main/>
+	}, {
+		path: '/login', element: <Login/>
+	}, {
+		path: '/answer', element: <Answer/>
+	}, {
+		path: '/game', element: <Game/>
+	}, {
+		path: '/score', element: <Score/>
+	}])
 
 export function Dashboard() {
 	return (
-		<Router>
-				<Route path="/">
-					<Main/>
-				</Route>
-				<Route path="/login">
-					<Login/>
-				</Route>
-		</Router>
+		<div>
+			<RouterProvider router={router}/>
+		</div>
 	)
 }
 

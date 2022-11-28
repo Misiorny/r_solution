@@ -15,12 +15,13 @@ Simply game based on chose property words according to question.
 ## General Information
 - According question you have to choose words from cloud by click on it. 
 - Main purpose of application is to show my frontend skills.
+- For better understanding of MVC pattern special directories in src folder was created.
 
 
 ## Technologies Used
 - React JS - version 18.2.0
-- Sass/scss - version 2.0
-- JavaScript - version 3.0
+- Sass/scss - version 1.56.1
+- JavaScript - version ES6
 
 
 ## Features
@@ -30,11 +31,11 @@ Simply game based on chose property words according to question.
 - Awesome feature 3
 
 ## Setup
+
 For install all dependencies, you have to run 
 ### `npm install`
 
 Start application: In the project directory, you can run:
-
 ### `npm start`
 
 ## Usage
