@@ -1,9 +1,5 @@
-import { Main }                                from '../view/';
+import { Main, Login, Answer, Game, Score }    from '../view/';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Login }                               from '../view/';
-import { Answer }                              from '../view';
-import { Game }                                from '../view'
-import { Score }                               from '../view';
 
 const router = createBrowserRouter([
 	{
@@ -16,9 +12,10 @@ const router = createBrowserRouter([
 		path: '/game', element: <Game/>
 	}, {
 		path: '/score', element: <Score/>
-	}])
+	}
+])
 
-export function Dashboard() {
+ function Dashboard() {
 	return (
 		<div>
 			<RouterProvider router={router}/>
@@ -26,4 +23,4 @@ export function Dashboard() {
 	)
 }
 
-
+export default Dashboard;

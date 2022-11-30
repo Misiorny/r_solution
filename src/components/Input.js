@@ -1,5 +1,5 @@
-export function Input(){
-	return(
-		<input type="text" id="name" name="name" required={true} minLength='3'/>
-	)
+export function Input({onChange}) {
+	return (
+		<input type="text" id="nick" name="nickName" onChange={onChange}/>
+	);
 }

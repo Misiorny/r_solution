@@ -1,26 +1,20 @@
-import { Button, Input, NavLink } from '../components';
+import { Button, Input, NavLink } from "../components";
+import { useState }               from "react";
 
 export function Login() {
-	return(
-		<section>
-			<div>
-				<h2>Instruction</h2>
-				<ol>
-					<li>Write your name</li>
-					<li>Run game session</li>
-					<li>Read question</li>
-					<li>Click on words</li>
-					<li>Check your answer</li>
-					<li>See correct answer</li>
-					<li>See your score</li>
-				</ol>
-			</div>
+	const [nick, setNick] = useState("");
+	const handleChange = (event) => {
+		setNick(event.target.value);
+	};
+	const handleClick = (event) => {
+		window.sessionStorage.setItem("playerNick", nick);
+	};
+	return (
 		<form>
-			<Input/>
-			<Button btnText={<NavLink to='/game' linkText="Play"/>}/>
+			<Input onChange={handleChange} labelText="Write your nick:"/>
+			<Button onClick={handleClick} btnType="submit" btnText={<NavLink to="/game" linkText="Play"/>}/>
 		</form>
-		</section>
-	)
+	);
 }
 
 

@@ -1,6 +1,7 @@
-export function Button({btnType, btnText}) {
+export function Button({btnType, btnText, onClick}) {
+
 	return (
-		<button type={btnType}>
+		<button type={btnType} onClick={onClick}>
 			{btnText}
 		</button>
 	)
