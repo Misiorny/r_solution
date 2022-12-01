@@ -8,7 +8,7 @@ const random = () => {
 };
 
 export function Game() {
-  const handleClick = (event) => {};
+  const handleClick = () => {};
 
   const questionId = random();
   const words = [...dataApi[questionId].all_words];

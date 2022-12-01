@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 export function Word({ text }) {
-  const [isClicked, setIsClicked] = useState(true);
+  const [isClicked, setIsClicked] = useState(false);
+
   const handleClick = (event) => {
     const weAreClicked = [];
-
     if (isClicked === true) {
       weAreClicked.push(event.target.id);
       console.log(
