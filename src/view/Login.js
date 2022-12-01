@@ -11,7 +11,7 @@ export function Login() {
   };
   return (
     <form>
-      <Input onChange={handleChange} labelText="Write your nick:" />
+      <Input onChange={handleChange} />
       <Button
         onClick={handleClick}
         btnType="submit"

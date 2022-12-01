@@ -8,6 +8,8 @@ const random = () => {
 };
 
 export function Game() {
+  const handleClick = (event) => {};
+
   const questionId = random();
   const words = [...dataApi[questionId].all_words];
 
@@ -22,7 +24,7 @@ export function Game() {
           <Word key={e} text={e} />
         ))}
       </div>
-      <Button btnText="Check Answer" />
+      <Button btnText="Check Answer" onClick={handleClick} />
     </div>
   );
 }
