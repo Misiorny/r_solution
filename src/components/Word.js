@@ -1,23 +1,9 @@
-import { useState } from "react";
+import styles from "../styles/Task.module.scss";
 
-export function Word({ text }) {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = (event) => {
-    const weAreClicked = [];
-    if (isClicked === true) {
-      weAreClicked.push(event.target.id);
-      console.log(
-        `I was clicked. My ID is ${event.target.id} and want to change bgc`,
-        "weAreClicked",
-        weAreClicked
-      );
-    }
-  };
-
+export function Word({ text, onClick }) {
   return (
-    <div onClick={handleClick}>
-      <p id={text} onClick={() => setIsClicked(true)}>
+    <div className={styles.word}>
+      <p id={text} onClick={onClick}>
         {text}
       </p>
     </div>

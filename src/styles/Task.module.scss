@@ -14,4 +14,16 @@ body {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
+.word{
+  display: inline-block;
+  border: 1px solid black;
+  margin: 5px;
+  padding: 10px;
+  font-size: 2rem;
+  background-color: #fff;
+  &.word-clicked{
+    background-color:#666;
+  }
 
+
+}

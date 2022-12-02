@@ -1,18 +1,17 @@
 import { Button, Word } from "../components";
 import dataApi from "../model/dataApi";
-
-const random = () => {
-  let number = Math.floor(Math.random() * 1000);
-  let magic = dataApi.length;
-  return number % magic;
-};
+import random from "../controlers/random";
+import { useState } from "react";
 
 export function Game() {
-  const handleClick = () => {};
+  const [answer, setAnswer] = useState([]);
 
-  const questionId = random();
+  const handleClick = (e) => {
+    setAnswer((answer) => [...answer, e.target.innerHTML]);
+  };
+  const checkAnswer = () => {};
+  const questionId = random;
   const words = [...dataApi[questionId].all_words];
-
   return (
     <div>
       <h1>Game</h1>
@@ -21,10 +20,10 @@ export function Game() {
       </div>
       <div>
         {words.map((e) => (
-          <Word key={e} text={e} />
+          <Word key={e} text={e} onClick={handleClick} />
         ))}
       </div>
-      <Button btnText="Check Answer" onClick={handleClick} />
+      <Button btnText="Check Answer" onClick={checkAnswer} />
     </div>
   );
 }
