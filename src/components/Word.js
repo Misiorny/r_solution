@@ -3,9 +3,7 @@ import { useState } from "react";
 
 export function Word({ text, onClick }) {
   const [isClicked, setIsClicked] = useState(false);
-  const changeColor = () => {
-    setIsClicked(() => true);
-  };
+
   const style = {
     bgc: {
       backgroundColor: isClicked ? "gray" : "",
@@ -13,7 +11,11 @@ export function Word({ text, onClick }) {
   };
   console.log(isClicked);
   return (
-    <div className={styles.word} onClick={changeColor} style={style.bgc}>
+    <div
+      className={styles.word}
+      onClick={(isClicked) => setIsClicked(true)}
+      style={style.bgc}
+    >
       <p id={text} onClick={onClick}>
         {text}
       </p>
