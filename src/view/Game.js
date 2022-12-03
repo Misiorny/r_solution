@@ -12,6 +12,7 @@ export function Game() {
   const checkAnswer = () => {};
   const questionId = random;
   const words = [...dataApi[questionId].all_words];
+
   return (
     <div>
       <h1>Game</h1>
