@@ -6,7 +6,6 @@ Simply game based on chose property words according to question.
 ## Table of Contents
 * [General Info](#general-information)
 * [Technologies Used](#technologies-used)
-* [Features](#features)
 * [Setup](#setup)
 * [Usage](#usage)
 * [Project Status](#project-status)
@@ -23,13 +22,6 @@ Simply game based on chose property words according to question.
 - Sass/scss - version 1.56.1
 - JavaScript - version ES6
 
-
-## Features
-
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
-
 ## Setup
 
 For install all dependencies, you have to run 
@@ -45,4 +37,4 @@ Provide various use cases and code examples here.
 `write-your-code-here`
 
 ## Project Status
-Project is: _in progress_ 
+Project is: _finished_ 
