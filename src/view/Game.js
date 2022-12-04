@@ -4,15 +4,29 @@ import random from "../controlers/random";
 import { useState } from "react";
 
 export function Game() {
+  const style = {
+    bgc: {
+      backgroundColor: "white",
+      color: "green",
+    },
+  };
   const [answer, setAnswer] = useState([]);
 
   const handleClick = (e) => {
     setAnswer((answer) => [...answer, e.target.innerHTML]);
   };
-  const checkAnswer = () => {};
   const questionId = random;
   const words = [...dataApi[questionId].all_words];
-
+  const goodAnswer = [...dataApi[questionId].good_words];
+  const playerAnswer = answer;
+  const checkAnswer = () => {
+    if (goodAnswer.contains(playerAnswer[playerAnswer.length - 1])) {
+      console.log("dobry wynik");
+    } else {
+      console.log("błąd");
+    }
+  };
+  console.log("goodAnswer", goodAnswer, "playerAnswer", playerAnswer);
   return (
     <div>
       <h1>Game</h1>
@@ -21,7 +35,7 @@ export function Game() {
       </div>
       <div>
         {words.map((e) => (
-          <Word key={e} text={e} onClick={handleClick} />
+          <Word key={e} text={e} onClick={handleClick} style={style.bgc} />
         ))}
       </div>
       <Button btnText="Check Answer" onClick={checkAnswer} />

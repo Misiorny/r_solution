@@ -1,24 +1,24 @@
 import styles from "../styles/Task.module.scss";
 import { useState } from "react";
 
-export function Word({ text, onClick }) {
+export function Word({ text, onClick, answer }) {
   const [isClicked, setIsClicked] = useState(false);
 
   const style = {
     bgc: {
-      backgroundColor: isClicked ? "gray" : "",
+      backgroundColor: isClicked ? "gray" : "white",
     },
   };
-  console.log(isClicked);
+
   return (
     <div
+      id={text}
       className={styles.word}
       onClick={(isClicked) => setIsClicked(true)}
       style={style.bgc}
     >
-      <p id={text} onClick={onClick}>
-        {text}
-      </p>
+      <p>{answer}</p>
+      <p onClick={onClick}>{text}</p>
     </div>
   );
 }
