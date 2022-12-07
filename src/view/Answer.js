@@ -15,11 +15,7 @@ export function Answer() {
   const [showAnswer, setShowAnswer] = useState({ contain: "", id: "" });
 
   console.log("data", words, "playerAnswer", answer, "goodAnswer", goodAnswer);
-  const style = {
-    bgc: {
-      // backgroundColor: isClicked ? "gray" : "white",
-    },
-  };
+
   // const storedWords = window.sessionStorage.getItem("words");
   // let words = [];
   // words = JSON.parse(storedWords);
@@ -42,7 +38,7 @@ export function Answer() {
       <h1>Answer</h1>
       <div>
         {words.map((e) => (
-          <Word key={e} text={e} />
+          <Word key={e} text={e} answer="Good" />
         ))}
       </div>
       <Button btnText={<NavLink to="/score" linkText="Score" />} />

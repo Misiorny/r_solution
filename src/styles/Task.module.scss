@@ -7,23 +7,35 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
-
 }
 
 body {
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
-.word{
+
+.word {
   display: inline-block;
   border: 1px solid black;
   margin: 5px;
   padding: 10px;
   font-size: 2rem;
   background-color: #fff;
-  &.word_clicked{
-    background-color:#666;
+
+  &.word_clicked {
+    background-color: #666;
   }
+}
 
-
+.answer {
+  display: none;
+  flex-direction: column;
+  &-true{
+    display: flex;
+    color: green;
+  }
+  &-false{
+    display: flex;
+    color: red;
+  }
 }

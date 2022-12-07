@@ -15,7 +15,7 @@ export function Word({ text, onClick, answer }) {
       onClick={() => setIsClicked(true)}
       style={style.bgc}
     >
-      <p>{answer}</p>
+      <p className={styles.answer}>{answer}</p>
       <p onClick={onClick}>{text}</p>
     </div>
   );
