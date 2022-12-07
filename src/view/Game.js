@@ -1,32 +1,50 @@
-import { Button, Word } from "../components";
+import { Button, NavLink, Word } from "../components";
 import dataApi from "../model/dataApi";
 import random from "../controlers/random";
 import { useState } from "react";
+import { Answer } from "./Answer";
 
 export function Game() {
-  const style = {
-    bgc: {
-      backgroundColor: "white",
-      color: "green",
-    },
-  };
   const [answer, setAnswer] = useState([]);
-
   const handleClick = (e) => {
+    e.preventDefault();
     setAnswer((answer) => [...answer, e.target.innerHTML]);
+    window.sessionStorage.setItem("playerAnswer", JSON.stringify(answer));
   };
   const questionId = random;
   const words = [...dataApi[questionId].all_words];
   const goodAnswer = [...dataApi[questionId].good_words];
   const playerAnswer = answer;
-  const checkAnswer = () => {
-    if (goodAnswer.contains(playerAnswer[playerAnswer.length - 1])) {
-      console.log("dobry wynik");
-    } else {
-      console.log("błąd");
-    }
+  const [data, setData] = useState({
+    words: words,
+    goodAnswer: goodAnswer,
+    // playerAnswer: answer,
+  });
+  const constData = () =>
+    setData((data) => {
+      data.concat({
+        words: [words],
+        goodAnswer: [goodAnswer],
+        // playerAnswer: [playerAnswer],
+      });
+    });
+  console.log(
+    "words",
+    words,
+    "goodAnswer",
+    goodAnswer,
+    "playerAnswer",
+    playerAnswer,
+    "data",
+    data,
+    "answer",
+    answer
+  );
+  const showAnswer = () => {
+    window.sessionStorage.setItem("words", JSON.stringify(words));
+    window.sessionStorage.setItem("goodAnswer", JSON.stringify(goodAnswer));
+    return <Answer />;
   };
-  console.log("goodAnswer", goodAnswer, "playerAnswer", playerAnswer);
   return (
     <div>
       <h1>Game</h1>
@@ -35,10 +53,13 @@ export function Game() {
       </div>
       <div>
         {words.map((e) => (
-          <Word key={e} text={e} onClick={handleClick} style={style.bgc} />
+          <Word key={e} text={e} onClick={handleClick} onChange={constData} />
         ))}
       </div>
-      <Button btnText="Check Answer" onClick={checkAnswer} />
+      <Button
+        btnText={<NavLink to="/answer" linkText="Check Answer" />}
+        onClick={showAnswer}
+      />
     </div>
   );
 }
