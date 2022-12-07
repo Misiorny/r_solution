@@ -9,40 +9,17 @@ export function Game() {
   const handleClick = (e) => {
     e.preventDefault();
     setAnswer((answer) => [...answer, e.target.innerHTML]);
-    window.sessionStorage.setItem("playerAnswer", JSON.stringify(answer));
   };
+
   const questionId = random;
   const words = [...dataApi[questionId].all_words];
   const goodAnswer = [...dataApi[questionId].good_words];
-  const playerAnswer = answer;
-  const [data, setData] = useState({
-    words: words,
-    goodAnswer: goodAnswer,
-    // playerAnswer: answer,
-  });
-  const constData = () =>
-    setData((data) => {
-      data.concat({
-        words: [words],
-        goodAnswer: [goodAnswer],
-        // playerAnswer: [playerAnswer],
-      });
-    });
-  console.log(
-    "words",
-    words,
-    "goodAnswer",
-    goodAnswer,
-    "playerAnswer",
-    playerAnswer,
-    "data",
-    data,
-    "answer",
-    answer
-  );
+  // const playerAnswer = answer;
+  console.log("words", words, "goodAnswer", goodAnswer, "answer", answer);
   const showAnswer = () => {
     window.sessionStorage.setItem("words", JSON.stringify(words));
     window.sessionStorage.setItem("goodAnswer", JSON.stringify(goodAnswer));
+    window.sessionStorage.setItem("playerAnswer", JSON.stringify(answer));
     return <Answer />;
   };
   return (
@@ -53,7 +30,7 @@ export function Game() {
       </div>
       <div>
         {words.map((e) => (
-          <Word key={e} text={e} onClick={handleClick} onChange={constData} />
+          <Word key={e} text={e} onClick={handleClick} />
         ))}
       </div>
       <Button
